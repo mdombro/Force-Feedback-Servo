@@ -6,5 +6,17 @@ The main application of this library is to allow the development of a RC plane c
 
 More details can be found at the Hackaday.io project [RC Plane Force-Feedback System](https://hackaday.io/project/164194-rc-plane-force-feedback-system). 
 
+# Function Guide
+
+### FFServo(num_servos, dt, velocity_gain, pos_lower_bound, pos_upper_bound)
+
+**num_servos:** the number of servos to use in the system
+
+**dt:** the interval of time between system updates - servo position commands/sensor readings
+
+**pos_lower_bound:** the lower bound of the position to use for the servo control. (for example if using the Arduino servo library this value might be 0)
+
+**pos_upper_bound:** the upper bound of the position to use for the servo control. (for Arduino servo library this might be 180)
+
 <library usage guide soon> 
 
