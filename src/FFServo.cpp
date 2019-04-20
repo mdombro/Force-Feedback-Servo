@@ -78,7 +78,3 @@ float fabs(float number) {
 		return -1.0*number;
 	}
 }
-
-byte FFServo::getnum() {
-	return _numServos;
-}

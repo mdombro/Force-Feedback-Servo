@@ -54,8 +54,6 @@ class FFServo {
 		void config_servo(byte servo_id, int force_direction); 
 		
 		float get_sensor_value(byte servo_id);
-		
-		byte getnum();
 
 };
 
