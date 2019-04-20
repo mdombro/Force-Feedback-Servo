@@ -10,13 +10,13 @@ More details can be found at the Hackaday.io project [RC Plane Force-Feedback Sy
 
 ### FFServo(num_servos, dt, velocity_gain, pos_lower_bound, pos_upper_bound)
 
-num_servos: the number of servos to use in the system
+**num_servos:** the number of servos to use in the system
 
-dt: the interval of time between system updates - servo position commands/sensor readings
+**dt:** the interval of time between system updates - servo position commands/sensor readings
 
-pos_lower_bound: the lower bound of the position to use for the servo control. (for example if using the Arduino servo library this value might be 0)
+**pos_lower_bound:** the lower bound of the position to use for the servo control. (for example if using the Arduino servo library this value might be 0)
 
-pos_upper_bound: the upper bound of the position to use for the servo control. (for Arduino servo library this might be 180)
+**pos_upper_bound:** the upper bound of the position to use for the servo control. (for Arduino servo library this might be 180)
 
 <library usage guide soon> 
 
