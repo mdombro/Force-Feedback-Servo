@@ -33,12 +33,13 @@ class FFServo {
 		// the gain used to modify force into a velocity
 		// the lower and upper bounds allowed for the servo position
 		// Set the initial configurations of the force feedback unit
+		// ToDo: make the bounds floats to go with how the pos is a float
 		FFServo(byte num_servos, float dt, float velocity_gain, int pos_lower_bound=0, int pos_upper_bound=180);
 		
 		FFServo();
 		
 		virtual ~FFServo();
-		
+		// ToDo: make sure order of arguments is consistent
 		void begin(byte num_servos, float dt, float velocity_gain, int pos_lower_bound, int pos_upper_bound);
 		
 		void set_LPF(float alpha); // 0 - no updates to measurement, most filtering 1 - no filtering
