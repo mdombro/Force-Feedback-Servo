@@ -15,6 +15,8 @@ Initializes the instance of the class.
 
 **dt:** The interval of time between system updates - servo position commands/sensor readings
 
+**velocity_gain:** Proportionality coefficient for the force on a servo. This value controls how quickly a servo will react to a particular force. 
+
 **pos_lower_bound:** The lower bound of the position to use for the servo control. (for example if using the Arduino servo library this value might be 0)
 
 **pos_upper_bound:** The upper bound of the position to use for the servo control. (for Arduino servo library this might be 180)
