@@ -9,7 +9,7 @@ More details can be found at the Hackaday.io project [RC Plane Force-Feedback Sy
 # Function Guide
 
 ### FFServo(byte num_servos, float dt, float velocity_gain, int pos_lower_bound, int pos_upper_bound)
-Initializes the instance of the class. 
+Initializes the instance of the class. Note a maximum of 63 servos can be used per class instance.
 
 **num_servos:** The number of servos to use in the system
 
