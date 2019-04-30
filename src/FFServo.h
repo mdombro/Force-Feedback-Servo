@@ -16,11 +16,11 @@ class FFServo {
 		byte _numServos;
 		int _posLowerBound;
 		int _posUpperBound;
-		float _sensorValue[64] = {0};
+		float _sensorValue[6] = {0};
 		//float lastSensorValue[64] = {0};
-		float _centerValue[64] = {0};
-		int _numAverageSamples[64] = {0}; // the number of samples being averaged to find the centerpoint for each servo
-		int _forceDirection[64] = {0};
+		float _centerValue[6] = {0};
+		int _numAverageSamples[6] = {0}; // the number of samples being averaged to find the centerpoint for each servo
+		int _forceDirection[6] = {0};
 		int _forceDeadband = 10;
 		float _dt = 0.02;
 		float _velocityGain = 3.0;
