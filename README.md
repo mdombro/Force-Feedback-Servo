@@ -6,6 +6,15 @@ The main application of this library is to allow the development of a RC plane c
 
 More details can be found at the Hackaday.io project [RC Plane Force-Feedback System](https://hackaday.io/project/164194-rc-plane-force-feedback-system). 
 
+# How this library works
+To create a force feedback servo system the force on any servo must be felt on all the other servos in the system. To simplify the mechanics of calculating the motion of the servos all servos are 'rigidly' linked in that they will all be moved to the same position. Any net force on the system will then induce a force on all the servos in the proper direction. 
+
+To do this, all the force measurements on all force sensors are added together to calculate the net force on the servo system. This force is converted into a desired velocity for the servos to move by multiplying the force by a coefficient tuned to move the servos at a desired speed given some force (in other words you can tune how reactive the system is to force - make it react to small forces or large forces depending on preference). 
+
+This velocity is then integrated into a position which is sent to the servos. 
+
+So for example, assume a system with two servos, A and B. Putting a positive force on servo A will cause both servos to begin moving in the positive direction. Now if something attempts to block the movement of servo B a force is applied in the negative direction. If two people were pushing against these servos it would feel like they were both pushing against the other. Now if the force stopping servo B becomes equal to the force on servo A, the **net** force of the system becomes 0. However, there is still a physical force being applied to both servos! Just because the net force is 0, the position is not calculated to be anything new. That is the basic idea of how this system works. 
+
 # Function Guide
 
 ### FFServo(byte num_servos, float dt, float velocity_gain, int pos_lower_bound, int pos_upper_bound)
@@ -30,7 +39,7 @@ Note that nothing explicitly ties a servo ID back to a physical servo or pin num
 **force_direction:** Set the servo rotation direction with respect to the force direction. Has a value of 1 or -1. This argument controls the sign of the force measurements, virtually swapping the direction of force readings from the sensor. 
 Note: This may later be turned into direction and also a gain setting, or the gain setting may be added as a seperate argument
 
-Needed: A method to reverse the actual servo rotation direction, in case the control direction is swapped. 
+NOTE: If you need to reverse the actual servo rotation direction, that will need to be handled by whatever code you are using to drive the servos. This library alone will not be able to reverse servo direction. 
 
 ### void servo_calibrate(int force_reading, byte servo_id)
 At startup a measurement is done for the unloaded readings of the force sensor. This is to get the 'midpoint' of the force sensor. This value will be subtracted from future readings to get both the direction and magnitude of the actual force on the servo. 
@@ -63,6 +72,3 @@ Sets the width of the deadband around the measured midpoint value. This is to he
 Returns the force sensor value for a particular servo. Useful for debugging. 
 
 **servo_id:** ID of the servo and force sensor pair. 
-
-<library usage guide soon> 
-
