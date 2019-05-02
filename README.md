@@ -13,6 +13,12 @@ To do this, all the force measurements on all force sensors are added together t
 
 This velocity is then integrated into a position which is sent to the servos. 
 
+```C
+F = force1 + force2 + force3 + ...;
+v = F*velocity_gain;
+pos = pos + v*dt;    // where dt is the time interval between updates
+```
+
 So for example, assume a system with two servos, A and B. Putting a positive force on servo A will cause both servos to begin moving in the positive direction. Now if something attempts to block the movement of servo B a force is applied in the negative direction. If two people were pushing against these servos it would feel like they were both pushing against the other. Now if the force stopping servo B becomes equal to the force on servo A, the **net** force of the system becomes 0. However, there is still a physical force being applied to both servos! Just because the net force is 0, the position is not calculated to be anything new. That is the basic idea of how this system works. 
 
 # Function Guide
