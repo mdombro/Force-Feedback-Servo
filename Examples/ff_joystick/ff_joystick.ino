@@ -1,6 +1,6 @@
 #include <Wire.h>
 #include <Adafruit_PWMServoDriver.h>
-#include <FFServo.h>
+#include "src/FFServo/FFServo.h"
 
 // Depending on your servo make, the pulse width min and max may vary, you 
 // want these to be as small/large as possible without hitting the hard stop
