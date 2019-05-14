@@ -20,7 +20,7 @@ void FFServo::begin(byte num_servos, float dt, float velocity_gain, int pos_lowe
 	_posUpperBound = pos_upper_bound;
 	_pos = ((float)pos_lower_bound + (float)pos_upper_bound) / 2.0;
 	
-	for (int i = 1; i < 64; i++) {
+	for (int i = 1; i < 6; i++) {
 		_forceDirection[i] = 1;
 	}
 }
